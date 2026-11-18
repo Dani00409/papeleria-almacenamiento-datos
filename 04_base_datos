@@ -1,1 +1,60 @@
+# Proceso de normalización de la base de datos
 
+## 1. Introducción
+
+La normalización es un proceso utilizado en el diseño de bases de datos relacionales para organizar la información, 
+reducir la redundancia y evitar anomalías durante las operaciones de inserción, actualización y eliminación.
+En el proyecto Sistema de Gestión de Papelería se aplica la normalización para obtener una estructura organizada y garantizar 
+la integridad de los datos.
+
+## 2. Primera forma normal (1FN)
+
+Se establece que cada atributo debe contener valores atómicos y que no deben existir grupos repetitivos.
+
+**Aplicación:**
+
+Los productos de una venta no se almacenan en una sola columna. Se utiliza la entidad DetalleVenta para registrar 
+individualmente cada producto vendido.
+
+## 3. Segunda forma normal (2FN)
+
+Se establece que la tabla debe cumplir la primera forma normal y que todos los atributos que no pertenecen a 
+una clave deben depender de la clave primaria completa.
+
+**Aplicación:**
+
+Se separa la información de los productos de los detalles de ventas y compras. Los nombres y características de los 
+productos se almacenan en Producto, mientras que las cantidades y precios históricos se registran en las tablas de detalle.
+
+## 4. Tercera forma normal (3FN)
+
+Se establece que la tabla debe cumplir la segunda forma normal y que no deben existir dependencias transitivas entre 
+atributos que no sean claves.
+
+**Aplicación:**
+
+Se separan las categorías de los productos mediante las entidades Categoria y Producto. 
+El nombre de la categoría se almacena únicamente en su tabla correspondiente.
+También se mantienen independientes los datos de clientes y proveedores respecto de las operaciones comerciales.
+
+## 5. Resultado de la normalización
+
+El modelo propuesto queda conformado por las siguientes entidades:
+
+1. Cliente.
+2. Categoria.
+3. Producto.
+4. Proveedor.
+5. Venta.
+6. DetalleVenta.
+7. Compra.
+8. DetalleCompra.
+
+Las entidades se relacionan mediante claves primarias y foráneas, permitiendo organizar la información y mantener 
+la integridad referencial.
+
+## 6. Conclusión
+
+La aplicación de las tres primeras formas normales permite obtener una estructura relacional organizada para el Sistema de 
+Gestión de Papelería. La separación de las entidades evita la repetición innecesaria de información y facilita el mantenimiento, 
+consulta y administración de los datos mediante Microsoft SQL Server.
